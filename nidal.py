@@ -136,9 +136,11 @@ class Libary :
             user_book_choise = input('Gives us the title of book !')
             for book in self.books : 
                 if user_book_choise == book.title  and book.quantity > 0: 
-                    print('book founded !')
+                    print('book is a valiabel!')
+                    book.quantity -= 1 
+                    self.users.books_borrowed.append(user_book_choise)
                 else : 
-                    print('book was not founded !')
+                    print('book is not valibale !')
         except ValueError : 
             print('plz gives us a valid value!')
 

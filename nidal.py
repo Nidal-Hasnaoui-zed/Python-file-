@@ -210,6 +210,59 @@ while True :
     print('4-return a book ')
     print('5-Exit')
     try : 
-        user_choise = int(input('Gives is your choise : '))
+        user_choice = int(input('Gives is your choise : '))
     except : 
         print('your choise is not valid !')
+        continue
+    if user_choice == 1:
+        print("\n📘 --- Book Management ---")
+        print("1 - Add Book")
+        print("2 - Edit Book")
+        print("3 - Delete Book")
+        print("4 - Show All Books")
+        try:
+            book_choice = int(input("Choose an option: "))
+        except ValueError:
+            print("Invalid choice!")
+            continue
+
+        if book_choice == 1:
+            library.add_book()
+        elif book_choice == 2:
+            library.edit_book()
+        elif book_choice == 3:
+            library.delete_book()
+        elif book_choice == 4:
+            library.show_books()
+        else:
+            print("Invalid book option.")
+
+    elif user_choice == 2:
+        print("\n👤 --- User Management ---")
+        print("1 - Add User")
+        print("2 - Show Users")
+        try:
+            user_mgmt_choice = int(input("Choose an option: "))
+        except ValueError:
+            print("Invalid choice!")
+            continue
+
+        if user_mgmt_choice == 1:
+            library.add_user()
+        elif user_mgmt_choice == 2:
+            library.show_users()
+        else:
+            print("Invalid user management option.")
+
+    elif user_choice == 3:
+        library.borrow_book()
+
+    elif user_choice == 4:
+        library.return_book()
+
+    elif user_choice == 5:
+        print("Exiting the program. Goodbye!")
+        break
+
+    else:
+        print("Invalid option. Please select from the menu.")

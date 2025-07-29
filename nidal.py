@@ -209,3 +209,7 @@ while True :
     print('3-borrowred a book')
     print('4-return a book ')
     print('5-Exit')
+    try : 
+        user_choise = int(input('Gives is your choise : '))
+    except : 
+        print('your choise is not valid !')

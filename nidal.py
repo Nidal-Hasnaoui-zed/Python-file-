@@ -130,6 +130,17 @@ class Libary :
                 return  
 
         print('User not found!') 
+    
+    def borrowered_book(self):
+        try : 
+            user_book_choise = input('Gives us the title of book !')
+            for book in self.books : 
+                if user_book_choise == book.title  and book.quantity: 
+                    print('book founded !')
+                else : 
+                    print('book was not founded !')
+        except ValueError : 
+            print('plz gives us a valid value!')
 
 
         

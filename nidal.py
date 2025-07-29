@@ -135,7 +135,7 @@ class Libary :
         try : 
             user_book_choise = input('Gives us the title of book !')
             for book in self.books : 
-                if user_book_choise == book.title  and book.quantity: 
+                if user_book_choise == book.title  and book.quantity > 0: 
                     print('book founded !')
                 else : 
                     print('book was not founded !')

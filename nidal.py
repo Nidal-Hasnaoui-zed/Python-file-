@@ -69,7 +69,34 @@ class Libary :
                 print('The boook was delet succefely !')
                 return
                 
-        print("❌ Book with that ID was not found.")   # book was  not found bro !   
+        print(" Book with that ID was not found.")   # book was  not found bro !   
+        
+    #adding a user : 
+    def add_user(self): 
+        try :
+            user_id = int(input('gives us the user id : '))
+            user_name = input('gives us your name : ')
+            books_borrowed = []
+            while True : 
+                print('**Menu**')
+                print('1-add book to your borrowed books')
+                print('2-Exit')
+                user_choise = int(input('give us yrou choise bro : '))
+                if user_choise == 1 : 
+                    book_borrowed_name = input('gives us the book name !')
+                    books_borrowed.append(book_borrowed_name)
+                elif user_choise == 2 : 
+                    print('okey !')
+                    break
+                else: 
+                    print('Invalid choise !')
+            
+            user = User(user_id, user_name, books_borrowed)
+            self.users.append(user)     
+            print('the book was added succrfelly !')     
+        except ValueError :
+            print('plz gives us a valid values !')
+        
         
                 
               

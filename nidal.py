@@ -162,37 +162,41 @@ class Libary :
             print(f'{book_title} was borrowed succefely !')  
         except ValueError : 
             print('plz Enter Valid values !')
-
-    # creating the function for return a book !
+    # return the book funcion : 
     def return_book(self): 
-        try : 
-            user_id = int(input('Gives us your id : '))
-            book_borrwoerd_title = input('Gives us the book title you borrwerd: ')
+        try: 
+            user_id = int(input("Enter your user ID: "))
+            book_title = input("Enter the title of the book you want to return: ")
             
-            #check user already exist in our system !
+            # Check if the user exists
             user = None 
-            for u in self.users : 
+            for u in self.users: 
                 if u.user_id == user_id: 
                     user = u 
                     break 
-            if not user : 
-                print('Sorry , User not found !')
+            if not user:
+                print("User not found.")
                 return    
+
+            # Check if the user has actually borrowed this book
+            if book_title not in user.borrowed_books:
+                print("This book is not in the user's borrowed list.")
+                return
             
-            # check if the book is already borroered !
+            # Find the book in the library collection
             book = None 
-            for b in self.books : 
-                if b.title == book_borrwoerd_title : 
-                    book = book_borrwoerd_title 
+            for b in self.books: 
+                if b.title == book_title: 
+                    book = b 
                     break 
-            if not book : 
-                print('Sorry bookt not found !')
+            if not book:
+                print("Book not found in the library.")
                 return
 
-            #making the procces !
+            # Process the return
             book.quantity += 1
-            user.borrowed_books.remove(book.title) 
-            
-            
-        except ValueError : 
-            print('Plz Gives us valid values !')
+            user.borrowed_books.remove(book_title)
+            print(f"✅ Book '{book_title}' has been returned successfully.")
+
+        except ValueError: 
+            print("Please enter valid inputs.")

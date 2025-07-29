@@ -200,3 +200,11 @@ class Libary :
 
         except ValueError: 
             print("Please enter valid inputs.")
+
+# adding the phase number 5 : 
+while True : 
+    print('**Menu**')
+    print('1-book managment !')
+    print('2-user managemnt')
+    print('3-borrowred a book')
+    print('4-return a book ')

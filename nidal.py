@@ -133,13 +133,32 @@ class Libary :
     # adding borrowered_book function
     def borrowered_book(self):
         try : 
-            user_book_choise = input('Gives us the title of book !')
-            for book in self.books : 
-                if user_book_choise == book.title  and book.quantity > 0: 
-                    print('book is a valiabel!')
-                    book.quantity -= 1 
-                    self.users.books_borrowed.append(user_book_choise)
-                else : 
-                    print('book is not valibale !')
+            user_id = int(input('Gives us your id : '))
+            book_title = input('gives us the book you want: ')
+           
+            #Search for user : 
+            user = None 
+            for u in self.users : 
+               if u.user_id == user_id : 
+                   user = u
+                   break
+            if not user : 
+                print('user not found !')
+                return 
+
+            # search about book !
+            book = None 
+            for b in self.books: 
+                if b.title == book_title: 
+                    book = book_title
+                    break
+            if not book : 
+                print('book not found !')
+                return
+            
+            #making the procces !
+            book.quantity -= 1
+            user.borrowed_books.append(book.title) 
+            print(f'{book_title} was borrowed succefely !')  
         except ValueError : 
-            print('plz gives us a valid value!')
+            print('plz Enter Valid values !')

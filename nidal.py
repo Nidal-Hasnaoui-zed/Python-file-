@@ -14,6 +14,7 @@ class Libary :
     def __init__(self): 
         self.books = []
         self.users = []
+    # add boook function 
     def add_book(self): 
         while True : 
             try: 
@@ -26,6 +27,7 @@ class Libary :
                 print('gives us a valid value !')
         book = Book(book_id, title, author, quanity)
         self.books.append(book)
+    #show books function !
     def show_books(self): 
         if not self.books : 
             print('no books avaliable right knew !')
@@ -33,6 +35,7 @@ class Libary :
             print('this is the lsit of book in our libary bro !')
             for book in self.books : 
                 print(f'book id : {book.book_id} | book title : {book.title} | book author : {book.author} | book quantity : {book.quantity}')
+    #edit books function !
     def edit_book(self): 
         try :
             book_id_edit = int(input('Gives us the id of book you wnna change ?'))
@@ -96,6 +99,26 @@ class Libary :
             print('the book was added succrfelly !')     
         except ValueError :
             print('plz gives us a valid values !')
+    
+    # function for show all users bro !
+    def show_users(self):  
+        if not self.users:
+            print('No users available now!')
+        else: 
+            print('This is a list of users:\n')
+            for user in self.users: 
+                print(f'User ID: {user.user_id} | User Name: {user.name}')
+                if user.borrowed_books: 
+                    print('The borrowed books are:')
+                    for book in user.borrowed_books: 
+                        print(book, end=' | ')
+                    print()  
+                else: 
+                    print('No borrowed books found!')
+                print() 
+
+        
+        
         
         
                 

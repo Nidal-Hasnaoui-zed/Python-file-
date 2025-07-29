@@ -54,7 +54,25 @@ class Libary :
                 print('the book was edited Succefely !')  # books was edited !
                 return 
             
-        print("❌ Book with that ID was not found.")   # book was  not found bro !              
+        print("❌ Book with that ID was not found.")   # book was  not found bro !   
+         
+    # delet book function : 
+    def delete_book(self): 
+        try : 
+            delete_book_id = int(input('gives us the id of book you wanna delet'))
+        except ValueError : 
+            print('gives us a valid id plz !')
+            return
+        for book in self.books: 
+            if book.book_id == delete_book_id : 
+                self.books.remove(book)
+                print('The boook was delet succefely !')
+                return
+                
+        print("❌ Book with that ID was not found.")   # book was  not found bro !   
+        
+                
+              
         
                 
      

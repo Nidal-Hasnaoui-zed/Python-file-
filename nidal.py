@@ -162,3 +162,37 @@ class Libary :
             print(f'{book_title} was borrowed succefely !')  
         except ValueError : 
             print('plz Enter Valid values !')
+
+    # creating the function for return a book !
+    def return_book(self): 
+        try : 
+            user_id = int(input('Gives us your id : '))
+            book_borrwoerd_title = input('Gives us the book title you borrwerd: ')
+            
+            #check user already exist in our system !
+            user = None 
+            for u in self.users : 
+                if u.user_id == user_id: 
+                    user = u 
+                    break 
+            if not user : 
+                print('Sorry , User not found !')
+                return    
+            
+            # check if the book is already borroered !
+            book = None 
+            for b in self.books : 
+                if b.title == book_borrwoerd_title : 
+                    book = book_borrwoerd_title 
+                    break 
+            if not book : 
+                print('Sorry bookt not found !')
+                return
+
+            #making the procces !
+            book.quantity += 1
+            user.borrowed_books.remove(book.title) 
+            
+            
+        except ValueError : 
+            print('Plz Gives us valid values !')

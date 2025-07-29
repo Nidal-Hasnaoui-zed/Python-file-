@@ -200,7 +200,8 @@ class Libary :
 
         except ValueError: 
             print("Please enter valid inputs.")
-
+            
+library = Libary()
 # adding the phase number 5 : 
 while True : 
     print('**Menu**')

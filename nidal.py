@@ -14,6 +14,7 @@ class Libary :
     def __init__(self): 
         self.books = []
         self.users = []
+    # add boook function 
     def add_book(self): 
         while True : 
             try: 
@@ -26,6 +27,7 @@ class Libary :
                 print('gives us a valid value !')
         book = Book(book_id, title, author, quanity)
         self.books.append(book)
+    #show books function !
     def show_books(self): 
         if not self.books : 
             print('no books avaliable right knew !')
@@ -33,6 +35,7 @@ class Libary :
             print('this is the lsit of book in our libary bro !')
             for book in self.books : 
                 print(f'book id : {book.book_id} | book title : {book.title} | book author : {book.author} | book quantity : {book.quantity}')
+    #edit books function !
     def edit_book(self): 
         try :
             book_id_edit = int(input('Gives us the id of book you wnna change ?'))
@@ -69,7 +72,69 @@ class Libary :
                 print('The boook was delet succefely !')
                 return
                 
-        print("❌ Book with that ID was not found.")   # book was  not found bro !   
+        print(" Book with that ID was not found.")   # book was  not found bro !   
+        
+    #adding a user : 
+    def add_user(self): 
+        try :
+            user_id = int(input('gives us the user id : '))
+            user_name = input('gives us your name : ')
+            books_borrowed = []
+            while True : 
+                print('**Menu**')
+                print('1-add book to your borrowed books')
+                print('2-Exit')
+                user_choise = int(input('give us yrou choise bro : '))
+                if user_choise == 1 : 
+                    book_borrowed_name = input('gives us the book name !')
+                    books_borrowed.append(book_borrowed_name)
+                elif user_choise == 2 : 
+                    print('okey !')
+                    break
+                else: 
+                    print('Invalid choise !')
+            
+            user = User(user_id, user_name, books_borrowed)
+            self.users.append(user)     
+            print('the book was added succrfelly !')     
+        except ValueError :
+            print('plz gives us a valid values !')
+    
+    # function for show all users bro !
+    def show_users(self):  
+        if not self.users:
+            print('No users available now!')
+        else: 
+            print('This is a list of users:\n')
+            for user in self.users: 
+                print(f'User ID: {user.user_id} | User Name: {user.name}')
+                if user.borrowed_books: 
+                    print('The borrowed books are:')
+                    for book in user.borrowed_books: 
+                        print(book, end=' | ')
+                    print()  
+                else: 
+                    print('No borrowed books found!')
+                print() 
+    def found_user(self):
+        try:
+            id_input = int(input('Gives us the user id: '))
+        except ValueError:
+            print('Please give us a valid numeric value.')
+            return
+
+        for user in self.users:
+            if user.user_id == id_input:
+                print('User found!')
+                print(f'User ID: {user.user_id} | User Name: {user.name}')
+                return  
+
+        print('User not found!') 
+
+
+        
+        
+        
         
                 
               

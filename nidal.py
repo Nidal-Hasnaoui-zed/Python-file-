@@ -116,6 +116,21 @@ class Libary :
                 else: 
                     print('No borrowed books found!')
                 print() 
+    def found_user(self):
+        try:
+            id_input = int(input('Gives us the user id: '))
+        except ValueError:
+            print('Please give us a valid numeric value.')
+            return
+
+        for user in self.users:
+            if user.user_id == id_input:
+                print('User found!')
+                print(f'User ID: {user.user_id} | User Name: {user.name}')
+                return  
+
+        print('User not found!') 
+
 
         
         
